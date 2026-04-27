@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/alijayanet/gembok-simple/main/assets/sim4.png" alt="Gembok Dashboard" width="100%">
+  <img src="https://raw.githubusercontent.com/yourofficialisp/wifiberbilling-simple/main/assets/sim4.png" alt="NBB Wifiber Dashboard" width="100%">
 </p>
 
 ---
@@ -56,7 +56,7 @@
 
 #### 1. Clone or Download
 ```bash
-git clone https://github.com/alijayanet/gembok-simple.git
+git clone https://github.com/yourofficialisp/wifiberbilling-simple.git
 # Or download ZIP file from GitHub
 ```
 
@@ -85,7 +85,7 @@ http://your-domain.com/install.php
 ## 🎨 Admin Dashboard Preview
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/alijayanet/gembok-simple/main/assets/sim5.png" alt="Admin Dashboard" width="800">
+  <img src="https://raw.githubusercontent.com/yourofficialisp/wifiberbilling-simple/main/assets/sim5.png" alt="Admin Dashboard" width="800">
 </p>
 
 ### Dashboard Features:
@@ -101,7 +101,7 @@ http://your-domain.com/install.php
 ## 🖥️ Customer Portal
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/alijayanet/gembok-simple/main/assets/customer-portal.png" alt="Customer Portal" width="800">
+  <img src="https://raw.githubusercontent.com/yourofficialisp/wifiberbilling-simple/main/assets/customer-portal.png" alt="Customer Portal" width="800">
 </p>
 
 ### Portal Features:
@@ -134,8 +134,8 @@ define('MIKROTIK_PASS', '');
 define('MIKROTIK_PORT', 8728);
 
 // Application Configuration
-define('APP_NAME', 'GEMBOK');
-define('APP_URL', 'http://localhost/gembok-simple');
+define('APP_NAME', 'WIFIBERBILLING-SIMPLE');
+define('APP_URL', 'http://localhost/wifiberbilling-simple');
 define('APP_VERSION', '2.0.0');
 
 // GenieACS Configuration
@@ -169,11 +169,11 @@ To enable automated features, set up cron jobs on your server:
 ### Linux/CPanel
 ```bash
 # Recommended: run scheduler every 5 minutes
-*/5 * * * * /usr/bin/php /path/to/your/gembok-simple/cron/scheduler.php
+*/5 * * * * /usr/bin/php /path/to/your/wifiberbilling-simple/cron/scheduler.php
 
 # If your hosting uses MultiPHP (ea-phpXX), use the PHP binary assigned to your domain (MultiPHP Manager)
 # Example:
-# */5 * * * * /usr/local/bin/ea-php81 /home/USERNAME/public_html/gembok-simple/cron/scheduler.php
+# */5 * * * * /usr/local/bin/ea-php81 /home/USERNAME/public_html/wifiberbilling-simple/cron/scheduler.php
 ```
 
 ### Web Cron (Alternative)
@@ -231,4 +231,12 @@ A dedicated portal for sales agents/resellers to sell hotspot vouchers.
 2. Go to **Sales Users > Paket** to assign which profiles a sales agent can sell and set their prices.
 3. Topup their deposit balance.
 
-![Image](https://github.com/user-attachments/assets/724e5ac2-626e-4f2d-bd1f-1265b70b544f)
+## 📞 Contact & Support
+
+- WhatsApp: +923036783333
+- Phone: 03036783333
+- Email: your.official.isp@gmail.com
+- Telegram: @yourofficialisp
+- GitHub: [@yourofficialisp](https://github.com/yourofficialisp)
+
+![NBB Wifiber](https://github.com/user-attachments/assets/724e5ac2-626e-4f2d-bd1f-1265b70b544f)
