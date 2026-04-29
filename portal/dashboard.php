@@ -659,7 +659,7 @@ function loadTickets() {
 
 function formatDate(dateString) {
     const date = new Date(dateString);
-    return date.toLocaleDateString('id-ID', {
+    return date.toLocaleDateString('en-PK', {
         day: '2-digit',
         month: 'short',
         year: 'numeric',

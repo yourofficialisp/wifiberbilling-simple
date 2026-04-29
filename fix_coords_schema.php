@@ -10,7 +10,7 @@ require_once 'includes/config.php';
 require_once 'includes/db.php';
 
 echo "<h2>🛠️ Coordinate Schema Fix (Lat/Lng)</h2>";
-echo "<p>This script will change latitude and longitude column types to <code>DECIMAL(11,8)</code> to support Indonesian coordinates (95-141 E).</p><hr>";
+echo "<p>This script will change latitude and longitude column types to <code>DECIMAL(11,8)</code> to support Pakistani coordinates (60-75 E).</p><hr>";
 
 try {
     $pdo = getDB();

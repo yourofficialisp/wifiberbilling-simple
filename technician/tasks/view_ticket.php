@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 
                 if (!$sourceImg) {
-                    setFlash('error', 'Failed memproses gambar. File mungkin rusak.');
+                    setFlash('error', 'Failed to process image. File may be corrupted.');
                     redirect("view_ticket.php?id=$ticketId");
                 }
                 
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 redirect("view_ticket.php?id=$ticketId");
             }
         } elseif (empty($ticket['photo_proof'])) {
-            setFlash('error', 'Wajib upload foto bukti perbaikan!');
+            setFlash('error', 'Must upload repair proof photo!');
             redirect("view_ticket.php?id=$ticketId");
         }
     }
@@ -286,7 +286,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="header">
         <a href="index.php" class="back-btn"><i class="fas fa-arrow-left"></i></a>
-        <h2>Detail Tiket #<?php echo $ticketId; ?></h2>
+        <h2>Ticket Detail #<?php echo $ticketId; ?></h2>
     </div>
 
     <div class="container">
@@ -294,22 +294,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="card">
             <h3 style="margin-bottom: 15px; color: var(--primary);">Data Customer</h3>
             
-            <span class="label">Name Customer</span>
+            <span class="label">Customer Name</span>
             <span class="value"><?php echo htmlspecialchars($ticket['customer_name']); ?></span>
             
-            <span class="label">Alamat</span>
+            <span class="label">Address</span>
             <span class="value"><?php echo htmlspecialchars($ticket['address']); ?></span>
             
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                 <?php if ($ticket['lat'] && $ticket['lng']): ?>
                     <a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $ticket['lat'] . ',' . $ticket['lng']; ?>" target="_blank" class="map-btn">
-                        <i class="fas fa-directions"></i> Petunjuk Arah
+                        <i class="fas fa-directions"></i> Directions
                     </a>
                 <?php endif; ?>
                 
                 <?php if ($ticket['phone']): ?>
                     <a href="https://wa.me/<?php echo preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', $ticket['phone'])); ?>" target="_blank" class="wa-btn">
-                        <i class="fab fa-whatsapp"></i> Chat WA
+                        <i class="fab fa-whatsapp"></i> Chat WhatsApp
                     </a>
                 <?php endif; ?>
             </div>
@@ -335,7 +335,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <div class="status-opt">
                         <input type="radio" name="status" id="st_progress" value="in_progress" <?php echo $ticket['status'] === 'in_progress' ? 'checked' : ''; ?>>
-                        <label for="st_progress">Dikerjakan</label>
+                        <label for="st_progress">In Progress</label>
                     </div>
                     <div class="status-opt">
                         <input type="radio" name="status" id="st_resolved" value="resolved" <?php echo $ticket['status'] === 'resolved' ? 'checked' : ''; ?>>
@@ -343,18 +343,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </div>
                 
-                <span class="label">Notes Penyelesaian</span>
-                <textarea name="notes" class="form-control" rows="3" placeholder="Tulis tindakan yang dilakukan..."><?php echo htmlspecialchars($ticket['notes'] ?? ''); ?></textarea>
+                <span class="label">Resolution Notes</span>
+                <textarea name="notes" class="form-control" rows="3" placeholder="Write the actions taken..."><?php echo htmlspecialchars($ticket['notes'] ?? ''); ?></textarea>
                 
                 <div id="photo-section" style="display: <?php echo $ticket['status'] === 'resolved' ? 'block' : 'none'; ?>;">
-                    <span class="label">Foto Bukti (Wajib jika Completed)</span>
+                    <span class="label">Proof Photo (Required if Completed)</span>
                     <div class="photo-preview" onclick="document.getElementById('photo-input').click()">
                         <?php if (!empty($ticket['photo_proof'])): ?>
                             <img src="../../<?php echo htmlspecialchars($ticket['photo_proof']); ?>" id="preview-img">
                         <?php else: ?>
                             <div id="placeholder" style="text-align: center; color: var(--text-secondary);">
                                 <i class="fas fa-camera" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
-                                Klik untuk ambil foto
+                                Click to take photo
                             </div>
                             <img id="preview-img" style="display: none;">
                         <?php endif; ?>
@@ -362,7 +362,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="file" name="photo" id="photo-input" accept="image/*" capture="environment" style="display: none;" onchange="previewImage(this)">
                 </div>
                 
-                <button type="submit" class="btn-submit">Save Perubahan</button>
+                <button type="submit" class="btn-submit">Save Changes</button>
             </form>
         </div>
     </div>

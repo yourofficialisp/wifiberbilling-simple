@@ -337,9 +337,9 @@ ob_start();
         const totalProfit = totalBill - totalCost;
         
         // Simple currency formatter
-        const formatter = new Intl.NumberFormat('id-ID', {
+        const formatter = new Intl.NumberFormat('en-PK', {
             style: 'currency',
-            currency: 'IDR',
+            currency: 'PKR',
             minimumFractionDigits: 0,
             maximumFractionDigits: 0
         });

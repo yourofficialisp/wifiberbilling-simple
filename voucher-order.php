@@ -69,7 +69,7 @@ $oldTos = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verifyCsrfToken($_POST['csrf_token'] ?? '')) {
-        $errorMessage = 'Token keamanan invalid.';
+        $errorMessage = 'Invalid security token.';
     } else {
         $oldName = trim((string) ($_POST['customer_name'] ?? ''));
         $oldPhone = trim((string) ($_POST['customer_phone'] ?? ''));
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     header('Location: ' . $statusUrl);
                     exit;
                 }
-                $errorMessage = $orderResult['message'] ?? 'Failed membuat order voucher.';
+                $errorMessage = $orderResult['message'] ?? 'Failed to create voucher order.';
             }
         }
     }
@@ -152,23 +152,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="card">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px;">
             <a href="<?php echo htmlspecialchars(rtrim(APP_URL, '/') . '/index.php'); ?>" style="color:#94a3b8;text-decoration:none;font-size:13px;">← Back</a>
-            <a href="<?php echo htmlspecialchars(rtrim(APP_URL, '/') . '/index.php#packages'); ?>" style="color:#67e8f9;text-decoration:none;font-size:13px;">View Paket</a>
+            <a href="<?php echo htmlspecialchars(rtrim(APP_URL, '/') . '/index.php#packages'); ?>" style="color:#67e8f9;text-decoration:none;font-size:13px;">View Packages</a>
         </div>
         <h1 class="title">Voucher Hotspot</h1>
-        <p class="subtitle">Voucher akan dikirim ke WhatsApp.</p>
+        <p class="subtitle">Voucher will be sent to WhatsApp.</p>
         <?php if ($errorMessage !== ''): ?>
             <div class="error"><?php echo htmlspecialchars($errorMessage); ?></div>
         <?php endif; ?>
 
         <?php if (empty($catalog)): ?>
-            <div class="empty">Package voucher not available yet. Pastikan profile hotspot di MikroTik memiliki harga jual.</div>
+            <div class="empty">Package voucher not available yet. Make sure hotspot profile in MikroTik has selling price.</div>
         <?php else: ?>
             <form method="post">
                 <input type="hidden" name="csrf_token" value="<?php echo generateCsrfToken(); ?>">
                 <div class="grid">
                     <div>
-                        <label class="label">Name Pembeli</label>
-                        <input class="input" type="text" name="customer_name" required value="<?php echo htmlspecialchars($oldName); ?>" placeholder="Name lengkap">
+                        <label class="label">Buyer Name</label>
+                        <input class="input" type="text" name="customer_name" required value="<?php echo htmlspecialchars($oldName); ?>" placeholder="Full Name">
                     </div>
                     <div>
                         <label class="label">WhatsApp Number</label>
@@ -184,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <input type="radio" name="profile_name" value="<?php echo htmlspecialchars($item['profile_name']); ?>" <?php echo $checked ? 'checked' : ''; ?> <?php echo $index === 0 ? 'required' : ''; ?>>
                                 <p class="package-title"><?php echo htmlspecialchars($item['display_name']); ?></p>
                                 <p class="package-price"><?php echo htmlspecialchars(formatCurrency($item['price'])); ?></p>
-                                <p class="package-validity">Masa aktif: <?php echo htmlspecialchars($item['validity']); ?></p>
+                                <p class="package-validity">Active period: <?php echo htmlspecialchars($item['validity']); ?></p>
                             </label>
                         <?php endforeach; ?>
                     </div>

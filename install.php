@@ -575,8 +575,8 @@ function insertDefaultData() {
     $settings = [
         ['app_name', 'GEMBOK'],
         ['app_version', '2.0.0'],
-        ['currency', 'IDR'],
-        ['CURRENCY_SYMBOL', 'Rp'],
+        ['currency', 'PKR'],
+        ['CURRENCY_SYMBOL', 'Rs'],
         ['timezone', 'Asia/Karachi'],
         ['invoice_prefix', 'INV'],
         ['invoice_start', '1'],

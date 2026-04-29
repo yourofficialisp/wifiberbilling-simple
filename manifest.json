@@ -1,7 +1,7 @@
 {
   "name": "Gembok ISP Management",
   "short_name": "Gembok ISP",
-  "description": "Aplikasi manajemen ISP lengkap untuk pelanggan, admin, agen, dan teknisi",
+  "description": "Complete ISP management application for customers, admin, agents, and technicians",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#0f172a",
@@ -97,9 +97,9 @@
   "categories": ["business", "utilities", "productivity"],
   "shortcuts": [
     {
-      "name": "Login Pelanggan",
-      "short_name": "Pelanggan",
-      "description": "Login sebagai pelanggan",
+      "name": "Customer Login",
+      "short_name": "Customer",
+      "description": "Login as customer",
       "url": "portal/login.php",
       "icons": [
         {
@@ -111,7 +111,7 @@
     {
       "name": "Login Admin",
       "short_name": "Admin",
-      "description": "Login sebagai admin",
+      "description": "Login as admin",
       "url": "admin/login.php",
       "icons": [
         {
@@ -121,9 +121,9 @@
       ]
     },
     {
-      "name": "Login Sales/Agen",
+      "name": "Login Sales/Agent",
       "short_name": "Sales",
-      "description": "Login sebagai sales/agen",
+      "description": "Login as sales/agent",
       "url": "sales/login.php",
       "icons": [
         {
@@ -133,9 +133,9 @@
       ]
     },
     {
-      "name": "Login Teknisi",
-      "short_name": "Teknisi",
-      "description": "Login sebagai teknisi",
+      "name": "Technician Login",
+      "short_name": "Technician",
+      "description": "Login as technician",
       "url": "technician/login.php",
       "icons": [
         {

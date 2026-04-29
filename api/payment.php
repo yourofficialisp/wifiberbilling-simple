@@ -65,7 +65,7 @@ try {
                 'name' => 'Tripay',
                 'icon' => 'fa-credit-card',
                 'color' => '#00f5ff',
-                'description' => 'Popular Indonesian payment gateway',
+                'description' => 'Popular Pakistani payment gateway',
                 'features' => ['QRIS', 'Virtual Account', 'VA']
             ],
             [
@@ -73,7 +73,7 @@ try {
                 'name' => 'Midtrans',
                 'icon' => 'fa-credit-card',
                 'color' => '#667eea',
-                'description' => 'Popular Indonesian payment gateway',
+                'description' => 'Popular Pakistani payment gateway',
                 'features' => ['QRIS', 'Virtual Account', 'VA', 'Bank Transfer']
             ]
         ];

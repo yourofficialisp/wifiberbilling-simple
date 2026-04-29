@@ -25,18 +25,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $salesUser = getSalesUser($salesId);
 
     if (!password_verify($currentPass, $salesUser['password'])) {
-        setFlash('error', 'Password saat ini salah.');
+        setFlash('error', 'Current password is incorrect.');
     } elseif ($newPass !== $confirmPass) {
-        setFlash('error', 'Konfirmasi password baru tidak cocok.');
+        setFlash('error', 'New password confirmation does not match.');
     } elseif (strlen($newPass) < 6) {
-        setFlash('error', 'Password baru must be at least 6 characters.');
+        setFlash('error', 'New password must be at least 6 characters.');
     } else {
         // Update password
         $hashed = password_hash($newPass, PASSWORD_DEFAULT);
         if (update('sales_users', ['password' => $hashed], 'id = ?', [$salesId])) {
             setFlash('success', 'Password changed successfully.');
         } else {
-            setFlash('error', 'Failed mengubah password.');
+            setFlash('error', 'Failed to change password.');
         }
     }
     redirect('profile.php');
@@ -64,23 +64,23 @@ ob_start();
 
         <hr style="border-color: var(--border-color); margin-bottom: 30px;">
 
-        <h4 style="margin-bottom: 20px; color: var(--text-secondary);"><i class="fas fa-lock"></i> Ganti Password</h4>
+        <h4 style="margin-bottom: 20px; color: var(--text-secondary);"><i class="fas fa-lock"></i> Change Password</h4>
         
         <form method="POST">
             <input type="hidden" name="csrf_token" value="<?php echo generateCsrfToken(); ?>">
             
             <div class="form-group">
-                <label class="form-label">Password Saat Ini</label>
+                <label class="form-label">Current Password</label>
                 <input type="password" name="current_password" class="form-control" required>
             </div>
 
             <div class="form-group">
-                <label class="form-label">Password Baru</label>
+                <label class="form-label">New Password</label>
                 <input type="password" name="new_password" class="form-control" required minlength="6">
             </div>
 
             <div class="form-group">
-                <label class="form-label">Konfirmasi Password Baru</label>
+                <label class="form-label">Confirm New Password</label>
                 <input type="password" name="confirm_password" class="form-control" required minlength="6">
             </div>
 

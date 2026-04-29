@@ -289,7 +289,7 @@ if ($type === 'ticket') {
             <?php if (empty($installs)): ?>
                 <div class="empty-state">
                     <i class="fas fa-check-circle"></i>
-                    <p>Tidak ada jadwal pasang baru.</p>
+                    <p>No new installation schedules.</p>
                 </div>
             <?php else: ?>
                 <?php foreach ($installs as $i): ?>
@@ -297,13 +297,13 @@ if ($type === 'ticket') {
                         <div class="task-header">
                             <span class="task-id">#C<?php echo $i['id']; ?></span>
                             <span class="status-badge status-<?php echo $i['status']; ?>">
-                                <?php echo $i['status'] === 'registered' ? 'Not yet Pasang' : 'Aktif'; ?>
+                                <?php echo $i['status'] === 'registered' ? 'Not yet Installed' : 'Active'; ?>
                             </span>
                         </div>
                         <div class="customer-name"><?php echo htmlspecialchars($i['name']); ?></div>
                         <div class="task-desc">
                             <i class="fas fa-box" style="color: var(--primary); margin-right: 5px;"></i>
-                            Package Internet Baru
+                            New Internet Package
                         </div>
                         <div class="task-footer">
                             <span><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars(substr($i['address'] ?? '-', 0, 25)) . '...'; ?></span>

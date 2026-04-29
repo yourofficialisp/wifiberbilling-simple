@@ -613,7 +613,7 @@ function getPaymentGateways() {
             'name' => 'Tripay',
             'icon' => 'fa-credit-card',
             'color' => '#00f5ff',
-            'description' => 'Payment gateway populer Indonesia',
+            'description' => 'Payment gateway populer Pakistan',
             'features' => ['QRIS', 'Virtual Account', 'VA'],
             'supported_channels' => ['QRIS', 'VA', 'Bank Transfer']
         ],
@@ -622,7 +622,7 @@ function getPaymentGateways() {
             'name' => 'Midtrans',
             'icon' => 'fa-credit-card',
             'color' => '#667eea',
-            'description' => 'Payment gateway populer Indonesia',
+            'description' => 'Payment gateway populer Pakistan',
             'features' => ['QRIS', 'Virtual Account', 'VA', 'Bank Transfer'],
             'supported_channels' => ['QRIS', 'VA', 'Bank Transfer']
         ],
@@ -631,7 +631,7 @@ function getPaymentGateways() {
             'name' => 'Duitku',
             'icon' => 'fa-credit-card',
             'color' => '#0ea5e9',
-            'description' => 'Payment gateway Indonesia',
+            'description' => 'Payment gateway Pakistan',
             'features' => ['QRIS', 'Virtual Account', 'E-Wallet'],
             'supported_channels' => ['QRIS', 'VA', 'E-Wallet']
         ],
@@ -640,7 +640,7 @@ function getPaymentGateways() {
             'name' => 'Xendit',
             'icon' => 'fa-credit-card',
             'color' => '#2563eb',
-            'description' => 'Payment gateway Indonesia',
+            'description' => 'Payment gateway Pakistan',
             'features' => ['QRIS', 'Virtual Account', 'E-Wallet', 'Retail'],
             'supported_channels' => ['QRIS', 'VA', 'E-Wallet', 'Retail']
         ]

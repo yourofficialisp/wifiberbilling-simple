@@ -7,13 +7,13 @@
 require_once 'includes/config.php';
 require_once 'includes/db.php';
 
-echo "<h2>🛠️ Migrasi Database Portal Technician</h2>";
+echo "<h2>🛠️ Technician Portal Database Migration</h2>";
 
 try {
     $pdo = getDB();
     
     // 1. Create technician_users table
-    echo "1. Membuat tabel technician_users... ";
+    echo "1. Creating technician_users table... ";
     $sql1 = "CREATE TABLE IF NOT EXISTS technician_users (
         id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(50) UNIQUE NOT NULL,
@@ -30,7 +30,7 @@ try {
     echo "<span style='color:green'>OK</span><br>";
     
     // 2. Add technician_id to trouble_tickets
-    echo "2. Update tabel trouble_tickets... ";
+    echo "2. Update trouble_tickets table... ";
     // Check if column exists first
     $check2 = $pdo->query("SHOW COLUMNS FROM trouble_tickets LIKE 'technician_id'");
     if ($check2->rowCount() == 0) {
@@ -40,11 +40,11 @@ try {
         $pdo->exec($sql2);
         echo "<span style='color:green'>OK</span><br>";
     } else {
-        echo "<span style='color:orange'>Already ada</span><br>";
+        echo "<span style='color:orange'>Already exists</span><br>";
     }
     
     // 3. Add installation columns to customers
-    echo "3. Update tabel customers... ";
+    echo "3. Update customers table... ";
     $check3 = $pdo->query("SHOW COLUMNS FROM customers LIKE 'installed_by'");
     if ($check3->rowCount() == 0) {
         $sql3 = "ALTER TABLE customers
@@ -54,33 +54,33 @@ try {
         $pdo->exec($sql3);
         echo "<span style='color:green'>OK</span><br>";
     } else {
-        echo "<span style='color:orange'>Already ada</span><br>";
+        echo "<span style='color:orange'>Already exists</span><br>";
     }
 
     // 4. Add photo proof column to trouble_tickets
-    echo "4. Update tabel trouble_tickets (foto bukti)... ";
+    echo "4. Update trouble_tickets table (proof photo)... ";
     $check4 = $pdo->query("SHOW COLUMNS FROM trouble_tickets LIKE 'photo_proof'");
     if ($check4->rowCount() == 0) {
         $sql4 = "ALTER TABLE trouble_tickets ADD COLUMN photo_proof VARCHAR(255) DEFAULT NULL";
         $pdo->exec($sql4);
         echo "<span style='color:green'>OK</span><br>";
     } else {
-        echo "<span style='color:orange'>Already ada</span><br>";
+        echo "<span style='color:orange'>Already exists</span><br>";
     }
     
     // 5. Add photo proof column to customers (PSB)
-    echo "5. Update tabel customers (foto bukti instalasi)... ";
+    echo "5. Update customers table (installation proof photo)... ";
     $check5 = $pdo->query("SHOW COLUMNS FROM customers LIKE 'installation_photo'");
     if ($check5->rowCount() == 0) {
         $sql5 = "ALTER TABLE customers ADD COLUMN installation_photo VARCHAR(255) DEFAULT NULL";
         $pdo->exec($sql5);
         echo "<span style='color:green'>OK</span><br>";
     } else {
-        echo "<span style='color:orange'>Already ada</span><br>";
+        echo "<span style='color:orange'>Already exists</span><br>";
     }
 
     // 6. Create ODPs table
-    echo "6. Membuat tabel odps... ";
+    echo "6. Creating odps table... ";
     $sql6 = "CREATE TABLE IF NOT EXISTS odps (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
@@ -94,7 +94,7 @@ try {
     echo "<span style='color:green'>OK</span><br>";
 
     // 7. Create ONU Locations table
-    echo "7. Membuat tabel onu_locations... ";
+    echo "7. Creating onu_locations table... ";
     $sql7 = "CREATE TABLE IF NOT EXISTS onu_locations (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(100),
@@ -110,7 +110,7 @@ try {
     echo "<span style='color:green'>OK</span><br>";
 
     // 8. Create ODP Links table
-    echo "8. Membuat tabel odp_links... ";
+    echo "8. Creating odp_links table... ";
     $sql8 = "CREATE TABLE IF NOT EXISTS odp_links (
         id INT AUTO_INCREMENT PRIMARY KEY,
         from_odp_id INT NOT NULL,
@@ -123,8 +123,8 @@ try {
     $pdo->exec($sql8);
     echo "<span style='color:green'>OK</span><br>";
 
-    echo "<hr><h3>✅ Migrasi Completed!</h3>";
-    echo "<p>Silakan hapus file ini jika sudah tidak diperlukan.</p>";
+    echo "<hr><h3>✅ Migration Completed!</h3>";
+    echo "<p>Please delete this file if no longer needed.</p>";
     echo "<a href='admin/dashboard.php'>Back to Dashboard</a>";
 
 } catch (PDOException $e) {

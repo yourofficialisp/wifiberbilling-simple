@@ -41,8 +41,8 @@
     </div>
     <div class="v-footer">
         PROFIL: {{profile}}<br>
-        HARGA: {{price}}<br>
-        MASA AKTIF: {{validity}}<br>
+        PRICE: {{price}}<br>
+        VALIDITY PERIOD: {{validity}}<br>
         LOGIN: {{dnsname}}
     </div>
 </div>

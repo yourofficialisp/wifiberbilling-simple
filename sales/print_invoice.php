@@ -180,26 +180,26 @@ $thermalUrl = $basePrintUrl . '&thermal=1';
     <div class="invoice-box">
         <div class="header">
             <h2><?php echo $appName; ?></h2>
-            <p>Bukti Bill Payment Internet</p>
+            <p>Internet Bill Payment Proof</p>
         </div>
 
         <div class="qr-wrap">
             <div class="details" style="flex: 1;">
             <table>
                 <tr>
-                    <td width="100">Nama</td>
+                    <td width="100">Name</td>
                     <td>: <?php echo htmlspecialchars($customer['name']); ?></td>
                 </tr>
                 <tr>
-                    <td>ID Customer</td>
+                    <td>Customer ID</td>
                     <td>: <?php echo htmlspecialchars($customer['pppoe_username']); ?></td>
                 </tr>
                 <tr>
-                    <td>Alamat</td>
+                    <td>Address</td>
                     <td>: <?php echo htmlspecialchars($customer['address']); ?></td>
                 </tr>
                 <tr>
-                    <td>Kasir</td>
+                    <td>Cashier</td>
                     <td>: <?php echo htmlspecialchars($salesUser['name']); ?></td>
                 </tr>
                 <tr>

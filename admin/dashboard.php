@@ -514,7 +514,7 @@ ob_start();
                     beginAtZero: true,
                     ticks: {
                         callback: function (value) {
-                            return 'Rp ' + value.toLocaleString('id-ID');
+                            return 'Rs ' + value.toLocaleString('en-PK');
                         },
                         color: '#9ca3af'
                     },

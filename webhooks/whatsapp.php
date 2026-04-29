@@ -278,7 +278,7 @@ function handleIncomingWhatsApp($from, $text) {
         case '/billing_bukaisolir':
             handleWhatsAppBillingBukaIsolir($from, $args);
             break;
-        case '/billing_lunas':
+        case '/billing_paid':
             handleWhatsAppBillingPaid($from, $args);
             break;
         case '/invoice_create':
@@ -356,7 +356,7 @@ function handleWhatsAppHelp($phone) {
         $message .= "/billing_invoice <pppoe_username> - List customer invoices\n";
         $message .= "/billing_isolir <pppoe_username> - Isolate customer\n";
         $message .= "/billing_bukaisolir <pppoe_username> - Remove customer isolation\n";
-        $message .= "/billing_lunas <invoice_no> - Mark invoice as paid\n";
+        $message .= "/billing_paid <invoice_no> - Mark invoice as paid\n";
         $message .= "/invoice_create <pppoe_username> <amount> <due_date> [desc]\n";
         $message .= "/invoice_edit <invoice_number> <amount> <due_date> <status>\n";
         $message .= "/invoice_delete <invoice_number>\n";
@@ -386,7 +386,7 @@ function handleWhatsAppMenu($phone) {
     }
     
     $message = "Admin Menu:\n";
-    $message .= "1) Billing: /billing_cek, /billing_invoice, /billing_lunas\n";
+    $message .= "1) Billing: /billing_cek, /billing_invoice, /billing_paid\n";
     $message .= "2) MikroTik: /pppoe_list, /pppoe_add, /hs_list, /hs_add\n";
     $message .= "Type /help for the full command list.";
     sendWhatsAppResponse($phone, $message);
@@ -571,7 +571,7 @@ function handleWhatsAppBillingPaid($phone, $args) {
     
     $invoiceNumber = trim($args);
     if ($invoiceNumber === '') {
-        sendWhatsAppResponse($phone, "Format: /billing_lunas <no_invoice>");
+        sendWhatsAppResponse($phone, "Format: /billing_paid <invoice_number>");
         return;
     }
     

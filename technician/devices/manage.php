@@ -34,7 +34,7 @@ if (!$customer) {
         'name' => 'Unregistered Device',
         'pppoe_username' => $username ?: $serial,
         'serial_number' => $serial ?: '',
-        'address' => 'Address tidak diketahui',
+        'address' => 'Address unknown',
         'status' => 'unknown'
     ];
 }

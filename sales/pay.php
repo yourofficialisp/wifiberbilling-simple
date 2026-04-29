@@ -31,7 +31,7 @@ ob_start();
     </div>
     <div class="card-body">
         <form method="GET" action="pay.php" style="display: flex; gap: 10px;">
-            <input type="text" name="q" class="form-control" placeholder="Nama, No HP, atau Username PPPoE..." value="<?php echo htmlspecialchars($searchQuery); ?>" required minlength="3">
+            <input type="text" name="q" class="form-control" placeholder="Name, Phone Number, or PPPoE Username..." value="<?php echo htmlspecialchars($searchQuery); ?>" required minlength="3">
             <button type="submit" class="btn btn-primary">
                 <i class="fas fa-search"></i> Search
             </button>

@@ -268,7 +268,7 @@
             </div>
             <div class="contact-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <h3>ALAMAT</h3>
+                <h3>ADDRESS</h3>
                 <p><?php echo $contactAddress; ?></p>
             </div>
         </div>

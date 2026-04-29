@@ -578,7 +578,7 @@ ob_start();
         <div class="form-group">
             <label class="form-label">Currency</label>
             <select name="currency" class="form-control">
-                <option value="IDR" <?php echo ($settings['currency'] ?? '') === 'IDR' ? 'selected' : ''; ?>>IDR - Rupiah</option>
+                <option value="PKR" <?php echo ($settings['currency'] ?? '') === 'PKR' ? 'selected' : ''; ?>>PKR - Rupee</option>
                 <option value="USD" <?php echo ($settings['currency'] ?? '') === 'USD' ? 'selected' : ''; ?>>USD - Dollar</option>
             </select>
         </div>
@@ -728,7 +728,7 @@ ob_start();
         
         <div class="form-group">
             <label class="form-label">Full Address</label>
-            <textarea name="contact_address" class="form-control" rows="2"><?php echo htmlspecialchars($siteSettings['contact_address'] ?? 'Jakarta, Indonesia'); ?></textarea>
+            <textarea name="contact_address" class="form-control" rows="2"><?php echo htmlspecialchars($siteSettings['contact_address'] ?? 'Karachi, Pakistan'); ?></textarea>
         </div>
 
         <div class="form-group">

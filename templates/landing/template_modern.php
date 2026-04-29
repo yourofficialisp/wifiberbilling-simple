@@ -215,15 +215,15 @@
             <h1><?php echo $heroTitle; ?></h1>
             <p><?php echo $heroDesc; ?></p>
             <div class="cta-buttons">
-                <a href="#packages" class="btn btn-primary"><i class="fas fa-rocket"></i> Mulai Sekarang</a>
-                <a href="#contact" class="btn btn-outline"><i class="fas fa-phone"></i> Contact Kami</a>
+                <a href="#packages" class="btn btn-primary"><i class="fas fa-rocket"></i> Start Now</a>
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-phone"></i> Contact Us</a>
             </div>
         </div>
     </section>
 
     <section class="features" id="features">
-        <h2 class="section-title">Kenapa Memilih <?php echo $appName; ?></h2>
-        <p class="section-subtitle">Layanan internet terbaik untuk kebutuhan You</p>
+        <h2 class="section-title">Why Choose <?php echo $appName; ?></h2>
+        <p class="section-subtitle">Best internet service for your needs</p>
         <div class="feature-grid">
             <div class="feature-card">
                 <i class="fas fa-tachometer-alt feature-icon"></i>
@@ -245,15 +245,15 @@
 
     <section class="packages" id="packages">
         <h2 class="section-title">Package Internet</h2>
-        <p class="section-subtitle">Select paket yang sesuai dengan kebutuhan You</p>
+        <p class="section-subtitle">Select package that suits your needs</p>
         <div class="package-grid">
             <?php foreach ($packages as $pkg): ?>
             <div class="package-card">
                 <h3><?php echo htmlspecialchars($pkg['name']); ?></h3>
                 <div class="package-price"><?php echo formatCurrency($pkg['price']); ?></div>
                 <ul class="package-features">
-                    <li><i class="fas fa-check"></i> Koneksi stabil</li>
-                    <li><i class="fas fa-check"></i> Unlimited kuota</li>
+                    <li><i class="fas fa-check"></i> Stable connection</li>
+                    <li><i class="fas fa-check"></i> Unlimited quota</li>
                     <li><i class="fas fa-check"></i> Support 24/7</li>
                 </ul>
                 <br>
@@ -279,7 +279,7 @@
             </div>
             <div class="contact-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <h3>Alamat</h3>
+                <h3>Address</h3>
                 <p><?php echo $contactAddress; ?></p>
             </div>
         </div>

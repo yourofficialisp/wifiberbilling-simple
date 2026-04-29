@@ -242,8 +242,8 @@
     </section>
 
     <section class="packages" id="packages">
-        <h2 class="section-title">Package Layanan</h2>
-        <p class="section-subtitle">Select paket yang sesuai dengan kebutuhan bisnis You</p>
+        <h2 class="section-title">Service Packages</h2>
+        <p class="section-subtitle">Select package that suits your business needs</p>
         <div class="package-grid">
             <?php foreach ($packages as $pkg): ?>
             <div class="package-card">
@@ -273,7 +273,7 @@
             </div>
             <div class="contact-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <h3>Alamat</h3>
+                <h3>Address</h3>
                 <p><?php echo $contactAddress; ?></p>
             </div>
         </div>

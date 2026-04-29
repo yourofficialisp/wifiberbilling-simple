@@ -202,11 +202,11 @@
         <a href="#" class="logo"><i class="fas fa-wifi"></i> <?php echo $appName; ?></a>
         <button class="nav-toggle" type="button" onclick="window.__gembokToggleNav && window.__gembokToggleNav()"><i class="fas fa-bars"></i></button>
         <div class="nav-links">
-            <a href="#features">Fitur</a>
-            <a href="#packages">Paket</a>
+            <a href="#features">Features</a>
+            <a href="#packages">Packages</a>
             <a href="voucher-order.php">Voucher</a>
             <a href="#" onclick="window.__gembokOpenRegisterModal && window.__gembokOpenRegisterModal(); return false;">List</a>
-            <a href="#contact">Kontak</a>
+            <a href="#contact">Contact</a>
             <div class="dropdown">
                 <a href="#" class="login-btn" onclick="window.__gembokToggleLogin && window.__gembokToggleLogin(event)">Login <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-content">
@@ -224,14 +224,14 @@
             <h1><?php echo $heroTitle; ?></h1>
             <p><?php echo $heroDesc; ?></p>
             <div class="cta-buttons">
-                <a href="#packages" class="btn btn-primary"><i class="fas fa-rocket"></i> Mulai Sekarang</a>
-                <a href="#contact" class="btn btn-outline"><i class="fas fa-phone"></i> Contact Kami</a>
+                <a href="#packages" class="btn btn-primary"><i class="fas fa-rocket"></i> Start Now</a>
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-phone"></i> Contact Us</a>
             </div>
         </div>
     </section>
 
     <section class="features" id="features">
-        <h2 class="section-title">Kenapa Memilih <span><?php echo $appName; ?></span></h2>
+        <h2 class="section-title">Why Choose <span><?php echo $appName; ?></span></h2>
         <div class="feature-grid">
             <div class="feature-card">
                 <i class="fas fa-tachometer-alt feature-icon"></i>
@@ -267,7 +267,7 @@
     </section>
 
     <section class="contact" id="contact">
-        <h2 class="section-title">Contact <span>Kami</span></h2>
+        <h2 class="section-title">Contact <span>Us</span></h2>
         <div class="contact-grid">
             <div class="contact-item">
                 <i class="fas fa-phone"></i>
@@ -281,7 +281,7 @@
             </div>
             <div class="contact-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <h3>Alamat</h3>
+                <h3>Address</h3>
                 <p><?php echo $contactAddress; ?></p>
             </div>
         </div>

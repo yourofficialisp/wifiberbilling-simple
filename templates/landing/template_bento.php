@@ -573,8 +573,8 @@
         <div class="bento-card card-testimonial fade-in">
             <div style="text-align: center;">
                 <i class="fas fa-quote-left" style="font-size: 2rem; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;"></i>
-                <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Kata Mereka</h3>
-                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">"Internet super cepat dan stabil, support 24/7 yang sangat membantu!"</p>
+                <h3 style="font-size: 1.3rem; margin-bottom: 10px;">What They Say</h3>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">"Super fast and stable internet, 24/7 support that is very helpful!"</p>
             </div>
         </div>
     </div>

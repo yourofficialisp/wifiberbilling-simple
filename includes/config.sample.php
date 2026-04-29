@@ -24,8 +24,8 @@ define('WIFIBER_UPDATE_VERSION_URL', 'https://raw.githubusercontent.com/youroffi
 
 // Pagination and currency
 define('ITEMS_PER_PAGE', 20);
-define('CURRENCY', 'IDR');
-define('CURRENCY_SYMBOL', 'Rp');
+define('CURRENCY', 'PKR');
+define('CURRENCY_SYMBOL', 'Rs');
 define('INVOICE_PREFIX', 'INV');
 define('INVOICE_START', 1);
 

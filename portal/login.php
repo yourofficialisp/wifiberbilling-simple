@@ -297,13 +297,13 @@ ob_start();
 
         <div class="login-help">
             <p style="margin: 0; font-size: 0.85rem;">
-                <small>Contact admin jika lupa password</small>
+                <small>Contact admin if you forgot password</small>
             </p>
         </div>
 
         <div class="login-footer">
-            <p style="margin: 0;">Not yet punya akun? Contact admin.</p>
-            <a href="../index.php">← Back ke Beranda</a>
+            <p style="margin: 0;">Don't have an account? Contact admin.</p>
+            <a href="../index.php">← Back to Home</a>
         </div>
     </div>
 </div>

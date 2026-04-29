@@ -568,10 +568,10 @@ foreach ($myTasks as $task) {
             const now = new Date();
             const diff = Math.floor((now - date) / 1000);
             
-            if (diff < 60) return diff + ' detik lalu';
-            if (diff < 3600) return Math.floor(diff / 60) + ' menit lalu';
-            if (diff < 86400) return Math.floor(diff / 3600) + ' jam lalu';
-            return date.toLocaleDateString('id-ID') + ' ' + date.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+            if (diff < 60) return diff + ' seconds ago';
+            if (diff < 3600) return Math.floor(diff / 60) + ' minutes ago';
+            if (diff < 86400) return Math.floor(diff / 3600) + ' hours ago';
+            return date.toLocaleDateString('en-PK') + ' ' + date.toLocaleTimeString('en-PK', { hour: '2-digit', minute: '2-digit' });
         }
 
         // User Location

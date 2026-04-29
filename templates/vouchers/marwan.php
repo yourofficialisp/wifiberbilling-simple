@@ -142,17 +142,17 @@
             <div class="voucher-label">VOUCHER</div>
             <div class="username-box">{{username}}</div>
             <div class="instructions">
-                Hubungkan ke wifi<br>
+                Connect to wifi<br>
                 <b>{{hotspotname}}</b><br>
-                Buka browser:<br>
+                Open browser:<br>
                 {{dnsname}}
             </div>
         </div>
 
         <div class="right-section">
-            <div class="validity-label">MASA AKTIF : {{validity}}</div>
+            <div class="validity-label">VALIDITY PERIOD : {{validity}}</div>
             <div class="limit-info">
-                Durasi:{{timelimit}}<br>
+                Duration:{{timelimit}}<br>
                 {{datalimit}}
             </div>
             <div class="qr-container">

@@ -128,7 +128,7 @@ function sendMpwaWhatsApp($phone, $message) {
         return ['success' => false, 'message' => 'MPWA API key not configured'];
     }
     
-    // Sender number: nomor HP yang sudah di-scan QR di dashboard MPWA
+    // Sender number: phone number that has been QR scanned in MPWA dashboard
     $sender = getWhatsAppSetting('MPWA_SENDER', defined('MPWA_SENDER') ? constant('MPWA_SENDER') : '');
     
     if (empty($sender)) {
@@ -185,7 +185,7 @@ function sendMpwaWhatsApp($phone, $message) {
                 $status = (bool) $decoded['status'];
             }
             if ($status === false) {
-                $msg = (string) ($decoded['message'] ?? 'MPWA mengembalikan status gagal');
+                $msg = (string) ($decoded['message'] ?? 'MPWA returned failed status');
                 $errorMsg = "Failed to send WhatsApp via MPWA (HTTP $httpCode): $msg";
                 logWhatsAppError("SENDER_ERROR: " . $errorMsg . " | RAW: " . mb_substr((string) $response, 0, 800));
                 return ['success' => false, 'message' => $errorMsg, 'data' => $decoded];

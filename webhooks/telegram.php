@@ -91,7 +91,7 @@ try {
                 handleBillingHelpInvoice($chatId);
                 break;
             
-            case 'billing_help_lunas':
+            case 'billing_help_paid':
                 handleBillingHelpPaid($chatId);
                 break;
             
@@ -244,7 +244,7 @@ function handleHelp($chatId) {
         $message .= "/billing_invoice &lt;pppoe_username&gt; - List customer invoices\n";
         $message .= "/billing_isolir &lt;pppoe_username&gt; - Isolate customer\n";
         $message .= "/billing_bukaisolir &lt;pppoe_username&gt; - Remove customer isolation\n";
-        $message .= "/billing_lunas &lt;invoice_no&gt; - Mark invoice as paid\n";
+        $message .= "/billing_paid &lt;invoice_no&gt; - Mark invoice as paid\n";
         $message .= "/invoice_create &lt;pppoe_username&gt; &lt;amount&gt; &lt;due_date&gt; [desc]\n";
         $message .= "/invoice_edit &lt;invoice_number&gt; &lt;amount&gt; &lt;due_date&gt; &lt;status&gt;\n";
         $message .= "/invoice_delete &lt;invoice_number&gt;\n";
@@ -460,7 +460,7 @@ function handleCommand($chatId, $text) {
             handleBillingBukaIsolir($chatId, $args);
             break;
         
-        case '/billing_lunas':
+        case '/billing_paid':
             handleBillingPaid($chatId, $args);
             break;
             
@@ -574,7 +574,7 @@ function handleBillingMenu($chatId) {
                 ['text' => '🔓 Remove Isolation', 'callback_data' => 'action=billing_picklist&mode=buka&page=1']
             ],
             [
-                ['text' => '✅ Mark as Paid', 'callback_data' => 'action=billing_help_lunas']
+                ['text' => '✅ Mark as Paid', 'callback_data' => 'action=billing_help_paid']
             ],
             [
                 ['text' => '⬅️ Back', 'callback_data' => 'action=menu']
@@ -611,7 +611,7 @@ function handleBillingHelpInvoice($chatId) {
 
 function handleBillingHelpPaid($chatId) {
     if (!isAdminChat($chatId)) return;
-    $message = "✅ Mark Invoice as Paid\n\nUse the command:\n/billing_lunas &lt;invoice_no&gt;\n\nExample:\n/billing_lunas INV-2026-0001";
+    $message = "✅ Mark Invoice as Paid\n\nUse the command:\n/billing_paid &lt;invoice_no&gt;\n\nExample:\n/billing_paid INV-2026-0001";
     sendMessage($chatId, $message);
 }
 
@@ -896,7 +896,7 @@ function handleBillingPaid($chatId, $args, $silent = false) {
     if (!isAdminChat($chatId)) return;
     $invoiceNumber = trim($args);
     if ($invoiceNumber === '') {
-        sendMessage($chatId, "Format: /billing_lunas &lt;invoice_no&gt;");
+        sendMessage($chatId, "Format: /billing_paid &lt;invoice_no&gt;");
         return;
     }
     

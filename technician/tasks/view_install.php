@@ -64,15 +64,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 unset($tmpImg);
                 unset($sourceImg);
             } else {
-                setFlash('error', 'Failed memproses gambar.');
+                setFlash('error', 'Failed to process image.');
                 redirect("view_install.php?id=$customerId");
             }
         } else {
-            setFlash('error', 'Format foto harus JPG/PNG/WEBP.');
+            setFlash('error', 'Photo format must be JPG/PNG/WEBP.');
             redirect("view_install.php?id=$customerId");
         }
     } elseif (empty($customer['installation_photo'])) {
-        setFlash('error', 'Wajib upload foto bukti instalasi!');
+        setFlash('error', 'Must upload installation proof photo!');
         redirect("view_install.php?id=$customerId");
     }
     
@@ -245,26 +245,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="header">
         <a href="index.php?type=install" class="back-btn"><i class="fas fa-arrow-left"></i></a>
-        <h2>Instalasi #C<?php echo $customerId; ?></h2>
+        <h2>Installation #C<?php echo $customerId; ?></h2>
     </div>
 
     <div class="container">
         <!-- Customer Info -->
         <div class="card">
-            <h3 style="margin-bottom: 15px; color: var(--primary);">Data Customer</h3>
+            <h3 style="margin-bottom: 15px; color: var(--primary);">Customer Data</h3>
             
-            <span class="label">Name Customer</span>
+            <span class="label">Customer Name</span>
             <span class="value"><?php echo htmlspecialchars($customer['name']); ?></span>
             
-            <span class="label">Alamat</span>
+            <span class="label">Address</span>
             <span class="value"><?php echo htmlspecialchars($customer['address']); ?></span>
             
-            <span class="label">Package Internet</span>
+            <span class="label">Internet Package</span>
             <span class="value"><?php echo htmlspecialchars($customer['package_name']); ?></span>
             
             <?php if ($customer['lat'] && $customer['lng']): ?>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $customer['lat'] . ',' . $customer['lng']; ?>" target="_blank" class="map-btn">
-                    <i class="fas fa-directions"></i> Petunjuk Arah
+                    <i class="fas fa-directions"></i> Directions
                 </a>
             <?php endif; ?>
         </div>
@@ -272,8 +272,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if ($customer['status'] === 'active'): ?>
             <div class="card" style="text-align: center; border-color: #00ff88;">
                 <i class="fas fa-check-circle" style="font-size: 3rem; color: #00ff88; margin-bottom: 15px;"></i>
-                <h3>Instalasi Completed</h3>
-                <p style="color: var(--text-secondary);">Customer ini sudah aktif.</p>
+                <h3>Installation Completed</h3>
+                <p style="color: var(--text-secondary);">This customer is already active.</p>
                 <?php if ($customer['installation_photo']): ?>
                     <img src="../../<?php echo htmlspecialchars($customer['installation_photo']); ?>" style="width: 100%; border-radius: 8px; margin-top: 15px;">
                 <?php endif; ?>
@@ -281,30 +281,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php else: ?>
             <!-- Action Form -->
             <div class="card">
-                <h3 style="margin-bottom: 15px;">Form Aktivasi</h3>
+                <h3 style="margin-bottom: 15px;">Activation Form</h3>
                 
                 <form method="POST" enctype="multipart/form-data">
                     <span class="label">Serial Number (SN) ONT</span>
                     <input type="text" name="serial_number" class="form-control" placeholder="Example: ZTEGC8E..." required>
                     
-                    <span class="label">Koordinat Lokasi (Update jika perlu)</span>
-                    <button type="button" class="gps-btn" onclick="getLocation()"><i class="fas fa-map-marker-alt"></i> Ambil Lokasi Saya</button>
+                    <span class="label">Location Coordinates (Update if needed)</span>
+                    <button type="button" class="gps-btn" onclick="getLocation()"><i class="fas fa-map-marker-alt"></i> Get My Location</button>
                     <div class="coord-grid">
                         <input type="text" name="lat" id="lat" class="form-control" placeholder="Latitude" value="<?php echo htmlspecialchars($customer['lat'] ?? ''); ?>">
                         <input type="text" name="lng" id="lng" class="form-control" placeholder="Longitude" value="<?php echo htmlspecialchars($customer['lng'] ?? ''); ?>">
                     </div>
                     
-                    <span class="label">Foto Bukti Instalasi (Wajib)</span>
+                    <span class="label">Installation Proof Photo (Required)</span>
                     <div class="photo-preview" onclick="document.getElementById('photo-input').click()">
                         <div id="placeholder" style="text-align: center; color: var(--text-secondary);">
                             <i class="fas fa-camera" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
-                            Foto Device Terpasang
+                            Installed Device Photo
                         </div>
                         <img id="preview-img" style="display: none;">
                     </div>
                     <input type="file" name="photo" id="photo-input" accept="image/*" capture="environment" style="display: none;" onchange="previewImage(this)" required>
                     
-                    <button type="submit" class="btn-submit" onclick="return confirm('Pastikan semua data sudah benar. Aktifkan customer?');">Save & Aktifkan</button>
+                    <button type="submit" class="btn-submit" onclick="return confirm('Ensure all data is correct. Activate customer?');">Save & Activate</button>
                 </form>
             </div>
         <?php endif; ?>
@@ -329,7 +329,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition, showError, { enableHighAccuracy: true });
             } else {
-                alert("Geolocation tidak didukung browser ini.");
+                alert("Geolocation is not supported by this browser.");
             }
         }
 
@@ -341,16 +341,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         function showError(error) {
             switch(error.code) {
                 case error.PERMISSION_DENIED:
-                    alert("Izin lokasi ditolak.");
+                    alert("Location permission denied.");
                     break;
                 case error.POSITION_UNAVAILABLE:
-                    alert("Informasi lokasi unavailable.");
+                    alert("Location information unavailable.");
                     break;
                 case error.TIMEOUT:
-                    alert("Waktu permintaan lokasi habis.");
+                    alert("Location request timed out.");
                     break;
                 case error.UNKNOWN_ERROR:
-                    alert("Terjadi kesalahan yang tidak diketahui.");
+                    alert("An unknown error occurred.");
                     break;
             }
         }

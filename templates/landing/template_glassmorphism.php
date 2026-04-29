@@ -491,7 +491,7 @@
             </div>
             <div class="contact-item glass">
                 <i class="fas fa-map-marker-alt"></i>
-                <h3>Alamat</h3>
+                <h3>Address</h3>
                 <p><?php echo $contactAddress; ?></p>
             </div>
         </div>

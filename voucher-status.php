@@ -20,7 +20,7 @@ $appName = getSetting('app_name', 'GEMBOK');
 $message = '';
 
 if ($safeOrder === '') {
-    $message = 'Nomor order invalid.';
+    $message = 'Invalid order number.';
     $order = null;
 } else {
     if (isset($_GET['check']) && $_GET['check'] === '1') {
@@ -50,7 +50,7 @@ $statusOrderUrl = $safeOrder !== ''
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Status Voucher - <?php echo htmlspecialchars($appName); ?></title>
+    <title>Voucher Status - <?php echo htmlspecialchars($appName); ?></title>
     <style>
         body { font-family: Arial, sans-serif; background: #0f172a; color: #e2e8f0; margin: 0; }
         .container { max-width: 860px; margin: 0 auto; padding: 24px; }
@@ -77,10 +77,10 @@ $statusOrderUrl = $safeOrder !== ''
 <body>
 <div class="container">
     <div class="card">
-        <h1 class="title">Status Order Voucher</h1>
+        <h1 class="title">Voucher Order Status</h1>
         <?php if ($message !== ''): ?>
             <div class="error"><?php echo htmlspecialchars($message); ?></div>
-            <a class="btn btn-dark" href="<?php echo htmlspecialchars($orderFormUrl); ?>">Back ke Form Order</a>
+            <a class="btn btn-dark" href="<?php echo htmlspecialchars($orderFormUrl); ?>">Back to Order Form</a>
         <?php else: ?>
             <p class="meta">No Order: <strong><?php echo htmlspecialchars($order['order_number']); ?></strong></p>
             <?php
@@ -91,46 +91,46 @@ $statusOrderUrl = $safeOrder !== ''
                     $statusClass = 'failed';
                 }
             ?>
-            <div class="row"><div class="k">Status Payment</div><div><span class="badge <?php echo $statusClass; ?>"><?php echo strtoupper(htmlspecialchars($order['status'])); ?></span></div></div>
-            <div class="row"><div class="k">Nama</div><div><?php echo htmlspecialchars($order['customer_name']); ?></div></div>
-            <div class="row"><div class="k">No WhatsApp</div><div><?php echo htmlspecialchars($order['customer_phone']); ?></div></div>
-            <div class="row"><div class="k">Profileeeeeeeeeeee Voucher</div><div><?php echo htmlspecialchars($order['profile_name']); ?></div></div>
-            <div class="row"><div class="k">Nominal</div><div><?php echo htmlspecialchars(formatCurrency($order['amount'])); ?></div></div>
-            <div class="row"><div class="k">Gateway</div><div><?php echo strtoupper(htmlspecialchars($order['payment_gateway'])); ?></div></div>
+            <div class="row"><div class="k">Payment Status</div><div><span class="badge <?php echo $statusClass; ?>"><?php echo strtoupper(htmlspecialchars($order['status'])); ?></span></div></div>
+            <div class="row"><div class="k">Name</div><div><?php echo htmlspecialchars($order['customer_name']); ?></div></div>
+            <div class="row"><div class="k">WhatsApp Number</div><div><?php echo htmlspecialchars($order['customer_phone']); ?></div></div>
+            <div class="row"><div class="k">Voucher Profile</div><div><?php echo htmlspecialchars($order['profile_name']); ?></div></div>
+            <div class="row"><div class="k">Amount</div><div><?php echo htmlspecialchars(formatCurrency($order['amount'])); ?></div></div>
+            <div class="row"><div class="k">Payment Gateway</div><div><?php echo strtoupper(htmlspecialchars($order['payment_gateway'])); ?></div></div>
             <?php if (!empty($order['payment_method'])): ?>
-                <div class="row"><div class="k">Metode</div><div><?php echo htmlspecialchars($order['payment_method']); ?></div></div>
+                <div class="row"><div class="k">Method</div><div><?php echo htmlspecialchars($order['payment_method']); ?></div></div>
             <?php endif; ?>
             <?php if (($order['status'] ?? '') === 'paid'): ?>
-                <div class="row"><div class="k">Waktu Paid</div><div><?php echo htmlspecialchars($order['paid_at'] ?? '-'); ?></div></div>
+                <div class="row"><div class="k">Payment Date</div><div><?php echo htmlspecialchars($order['paid_at'] ?? '-'); ?></div></div>
             <?php endif; ?>
 
             <div style="margin-top: 14px;">
                 <?php if (($order['status'] ?? '') === 'pending' && !empty($order['payment_link'])): ?>
                     <a class="btn btn-primary" href="<?php echo htmlspecialchars($order['payment_link']); ?>" target="_blank" rel="noopener noreferrer">Pay Now</a>
-                    <a class="btn btn-dark" href="<?php echo htmlspecialchars($statusOrderUrl . '?check=1'); ?>">Cek Status Payment</a>
+                    <a class="btn btn-dark" href="<?php echo htmlspecialchars($statusOrderUrl . '?check=1'); ?>">Check Payment Status</a>
                 <?php elseif (($order['status'] ?? '') === 'paid' && ($order['whatsapp_status'] ?? 'pending') !== 'sent'): ?>
-                    <a class="btn btn-dark" href="<?php echo htmlspecialchars($statusOrderUrl . '?check=1'); ?>">Kirim Ulang WhatsApp</a>
+                    <a class="btn btn-dark" href="<?php echo htmlspecialchars($statusOrderUrl . '?check=1'); ?>">Resend WhatsApp</a>
                 <?php elseif (($order['status'] ?? '') === 'failed' || ($order['status'] ?? '') === 'expired'): ?>
-                    <div class="warn">Payment tidak successful atau kedaluwarsa. Silakan buat order baru.</div>
-                    <a class="btn btn-dark" href="<?php echo htmlspecialchars($orderFormUrl); ?>">Buat Order Baru</a>
+                    <div class="warn">Payment was not successful or expired. Please create a new order.</div>
+                    <a class="btn btn-dark" href="<?php echo htmlspecialchars($orderFormUrl); ?>">Create New Order</a>
                 <?php endif; ?>
             </div>
 
             <?php if (($order['status'] ?? '') === 'paid' && ($order['fulfillment_status'] ?? '') !== 'success'): ?>
-                <div class="warn">Payment sudah diterima, voucher masih diproses. Silakan refresh halaman ini.</div>
+                <div class="warn">Payment has been received, voucher is still being processed. Please refresh this page.</div>
             <?php endif; ?>
 
             <?php if (!empty($order['voucher_username']) && !empty($order['voucher_password'])): ?>
                 <div class="voucher">
-                    <div class="row"><div class="k">Username Voucher</div><div><code><?php echo htmlspecialchars($order['voucher_username']); ?></code></div></div>
-                    <div class="row"><div class="k">Password Voucher</div><div><code><?php echo htmlspecialchars($order['voucher_password']); ?></code></div></div>
-                    <div class="row"><div class="k">Status WhatsApp</div><div><?php echo strtoupper(htmlspecialchars($order['whatsapp_status'] ?? 'pending')); ?></div></div>
+                    <div class="row"><div class="k">Voucher Username</div><div><code><?php echo htmlspecialchars($order['voucher_username']); ?></code></div></div>
+                    <div class="row"><div class="k">Voucher Password</div><div><code><?php echo htmlspecialchars($order['voucher_password']); ?></code></div></div>
+                    <div class="row"><div class="k">WhatsApp Status</div><div><?php echo strtoupper(htmlspecialchars($order['whatsapp_status'] ?? 'pending')); ?></div></div>
                 </div>
-                <div class="ok" style="margin-top: 12px;">Voucher successful dibuat dan ditampilkan di halaman ini.</div>
+                <div class="ok" style="margin-top: 12px;">Voucher successfully created and displayed on this page.</div>
             <?php endif; ?>
 
             <div style="margin-top: 12px;">
-                <a class="btn btn-dark" href="<?php echo htmlspecialchars($orderFormUrl); ?>">Order Voucher Lain</a>
+                <a class="btn btn-dark" href="<?php echo htmlspecialchars($orderFormUrl); ?>">Order Another Voucher</a>
             </div>
         <?php endif; ?>
     </div>

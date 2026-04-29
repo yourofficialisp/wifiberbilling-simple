@@ -26,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['technician']['name'] = $name;
         $_SESSION['technician']['phone'] = $phone;
         
-        setFlash('success', 'Profileeeeeeeeeee updated successfully');
+        setFlash('success', 'Profile updated successfully');
         redirect('profile.php');
     } else {
-        setFlash('error', 'Failed memperbarui profil');
+        setFlash('error', 'Failed to update profile');
     }
 }
 ?>
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profileeeeeeeeeee - <?php echo htmlspecialchars($tech['name']); ?></title>
+    <title>Profile - <?php echo htmlspecialchars($tech['name']); ?></title>
     <meta name="theme-color" content="#0a0a12">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../assets/icons/icon-192x192.png">
@@ -173,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             <form method="POST">
                 <div class="form-group">
-                    <label class="form-label">Name Lengkap</label>
+                    <label class="form-label">Full Name</label>
                     <input type="text" name="name" class="form-control" value="<?php echo htmlspecialchars($tech['name']); ?>" required>
                 </div>
                 
@@ -183,19 +183,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">No. HP / WA</label>
+                    <label class="form-label">Phone / WA</label>
                     <input type="text" name="phone" class="form-control" value="<?php echo htmlspecialchars($tech['phone'] ?? ''); ?>">
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">Ganti Password (Optional)</label>
+                    <label class="form-label">Change Password (Optional)</label>
                     <input type="password" name="password" class="form-control" placeholder="Kosongkan jika tidak ingin ubah">
                 </div>
                 
-                <button type="submit" class="btn-submit">Save Perubahan</button>
+                <button type="submit" class="btn-submit">Save Changes</button>
             </form>
             
-            <a href="logout.php" class="btn-logout" onclick="return confirm('Logout dari aplikasi?');">
+            <a href="logout.php" class="btn-logout" onclick="return confirm('Logout from application?');">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </a>
         </div>

@@ -312,11 +312,11 @@
         <a href="#" class="logo"><i class="fas fa-wifi"></i> <?php echo $appName; ?></a>
         <button class="nav-toggle" type="button" onclick="window.__gembokToggleNav && window.__gembokToggleNav()"><i class="fas fa-bars"></i></button>
         <div class="nav-links">
-            <a href="#features">Fitur</a>
-            <a href="#packages">Paket</a>
+            <a href="#features">Features</a>
+            <a href="#packages">Packages</a>
             <a href="voucher-order.php">Voucher</a>
             <a href="#" onclick="window.__gembokOpenRegisterModal && window.__gembokOpenRegisterModal(); return false;">List</a>
-            <a href="#contact">Kontak</a>
+            <a href="#contact">Contact</a>
             <div class="dropdown">
                 <a href="#" class="neumorphic-btn" onclick="window.__gembokToggleLogin && window.__gembokToggleLogin(event)">Login <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-content">
@@ -334,14 +334,14 @@
             <h1><?php echo strip_tags($heroTitle); ?></h1>
             <p><?php echo $heroDesc; ?></p>
             <div class="cta-buttons">
-                <a href="#packages" class="neumorphic-btn">Mulai Sekarang</a>
-                <a href="#contact" class="neumorphic-btn">Contact Kami</a>
+                <a href="#packages" class="neumorphic-btn">Start Now</a>
+                <a href="#contact" class="neumorphic-btn">Contact Us</a>
             </div>
         </div>
     </section>
 
     <section class="features" id="features">
-        <h2 class="section-title">Kenapa Memilih Kami</h2>
+        <h2 class="section-title">Why Choose Us</h2>
         <div class="feature-grid">
             <div class="feature-card neumorphic">
                 <i class="fas fa-tachometer-alt feature-icon"></i>
@@ -362,7 +362,7 @@
     </section>
 
     <section class="packages" id="packages">
-        <h2 class="section-title">Package Internet</h2>
+        <h2 class="section-title">Internet Package</h2>
         <div class="package-grid">
             <?php foreach ($packages as $pkg): ?>
             <div class="package-card neumorphic">
@@ -377,7 +377,7 @@
     </section>
 
     <section class="contact" id="contact">
-        <h2 class="section-title">Contact Kami</h2>
+        <h2 class="section-title">Contact Us</h2>
         <div class="contact-grid">
             <div class="contact-item neumorphic">
                 <i class="fas fa-phone"></i>
@@ -391,7 +391,7 @@
             </div>
             <div class="contact-item neumorphic">
                 <i class="fas fa-map-marker-alt"></i>
-                <h3>Alamat</h3>
+                <h3>Address</h3>
                 <p><?php echo $contactAddress; ?></p>
             </div>
         </div>

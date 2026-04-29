@@ -174,7 +174,7 @@ $appName = getSetting('app_name', 'WiFiber Billing');
         <form method="POST">
             <div class="form-group">
                 <label class="form-label">Username</label>
-                <input type="text" name="username" class="form-control" placeholder="Username teknisi" required autofocus>
+                <input type="text" name="username" class="form-control" placeholder="Technician Username" required autofocus>
             </div>
             
             <div class="form-group">
